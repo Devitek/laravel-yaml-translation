@@ -1,0 +1,20 @@
+{
+    "name": "devitek/yaml-translation",
+    "description": "Add YAML file support to Laravel TranslationServiceProvider",
+    "authors": [
+        {
+            "name": "Thomas SIEFFERT",
+            "email": "caporaldead@devitek.fr"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/translation": "4.x",
+        "symfony/yaml": "2.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Devitek\\": "src/Devitek"
+        }
+    }
+}
