@@ -16,5 +16,6 @@
         "psr-4": {
             "Devitek\\": "src/Devitek"
         }
-    }
+    },
+    "minimum-stability": "dev"
 }
