@@ -62,16 +62,14 @@ class YamlFileLoader extends FileLoader
         $cachefile = storage_path() . '/cache/yaml.lang.cache.' . md5($file) . '.php';
 
         if (@filemtime($cachefile) < filemtime($file)) {
-
             $parser = new Parser();
             $content = $parser->parse(file_get_contents($file));
-            file_put_contents($cachefile, "<?php \r\n\r\n return " . var_export($content, true) . ";");
 
+            file_put_contents($cachefile, "<?php" . PHP_EOL . PHP_EOL . "return " . var_export($content, true) . ";");
         } else {
-
             $content = $this->files->getRequire($cachefile);
-
         }
+
         return $content;
     }
     
