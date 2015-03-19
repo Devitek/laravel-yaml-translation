@@ -77,10 +77,10 @@ class YamlFileLoader extends FileLoader
 	        
             $parser  = new Parser();
             $content = null === ($yaml = $parser->parse(file_get_contents($file))) ? [] : $yaml;
-            if ( !File::exists($cachedir) ){
-	            File::makeDirectory($cachedir);
+            if ( !file_exists($cachedir) ){
+	            @mkdir($cachedir, 0755);
 	        }
-            File::put($cachefile, "<?php" . PHP_EOL . PHP_EOL . "return " . var_export($content, true) . ";");            
+            file_put_contents($cachefile, "<?php" . PHP_EOL . PHP_EOL . "return " . var_export($content, true) . ";");     
             
         } else {
 	     	
