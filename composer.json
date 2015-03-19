@@ -9,7 +9,7 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "illuminate/translation": "4.x",
+        "illuminate/translation": "5.x",
         "symfony/yaml": "2.*"
     },
     "autoload": {
