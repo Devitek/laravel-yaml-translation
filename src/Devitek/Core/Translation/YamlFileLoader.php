@@ -144,7 +144,7 @@ class YamlFileLoader implements LoaderInterface
 
 		$cachedir = storage_path() . '/yaml-translation/';
 	        
-	    $cachefile = $cachedir . '/cache.' . md5($file) . '.php';
+	    $cachefile = $cachedir . 'cache.' . md5($file) . '.php';
 
         if (@filemtime($cachefile) < filemtime($file)) {
 	        
