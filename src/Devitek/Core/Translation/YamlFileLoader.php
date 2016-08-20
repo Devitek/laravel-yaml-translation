@@ -1,7 +1,6 @@
 <?php namespace Devitek\Core\Translation;
 
 use Illuminate\Filesystem\Filesystem;
-use Illuminate\Translation\FileLoader;
 use Symfony\Component\Yaml\Parser;
 use File;
 
@@ -43,8 +42,8 @@ class YamlFileLoader implements LoaderInterface
         $this->path = $path;
         $this->files = $files;
     }
-    
-    
+
+
     /**
      * Get Allowed Translation File Extensions.
      *
@@ -54,8 +53,8 @@ class YamlFileLoader implements LoaderInterface
     {
         return ['php', 'yml', 'yaml'];
     }
-    
-    
+
+
     /**
      * Load a local namespaced translation group for overrides.
      *
@@ -68,18 +67,18 @@ class YamlFileLoader implements LoaderInterface
 	protected function loadNamespaceOverrides(array $lines, $locale, $group, $namespace)
 	{
 		foreach ($this->getAllowedFileExtensions() as $extension) {
-			
+
 			$file = "{$this->path}/vendor/{$namespace}/{$locale}/{$group}.{$extension}";
-	
+
 			if ($this->files->exists($file))
 			{
 				return array_replace_recursive($lines, $this->parseContent($extension, $file));
 			}
-			
+
 		}
-		
+
 		return $lines;
-		
+
 	}
 
 
@@ -93,18 +92,18 @@ class YamlFileLoader implements LoaderInterface
      */
 	protected function loadPath($path, $locale, $group)
 	{
-		
+
 		foreach ($this->getAllowedFileExtensions() as $extension) {
-		
+
 			if ($this->files->exists($full = "{$path}/{$locale}/{$group}.{$extension}"))
 			{
 				return $this->parseContent($extension, $full);
 			}
-			
+
 		}
-		
+
 		return array();
-		
+
 	}
 
 
@@ -143,28 +142,28 @@ class YamlFileLoader implements LoaderInterface
     {
 
 		$cachedir = storage_path() . '/yaml-translation/';
-	        
+
 	    $cachefile = $cachedir . 'cache.' . md5($file) . '.php';
 
         if (@filemtime($cachefile) < filemtime($file)) {
-	        
+
             $parser  = new Parser();
             $content = null === ($yaml = $parser->parse(file_get_contents($file))) ? [] : $yaml;
             if ( !file_exists($cachedir) ){
 	            @mkdir($cachedir, 0755);
 	        }
-            file_put_contents($cachefile, "<?php" . PHP_EOL . PHP_EOL . "return " . var_export($content, true) . ";");     
-            
+            file_put_contents($cachefile, "<?php" . PHP_EOL . PHP_EOL . "return " . var_export($content, true) . ";");
+
         } else {
-	     	
+
             $content = require $cachefile;
 
         }
 
         return $content;
     }
-    
-    
+
+
      /**
      * Load the messages for the given locale.
      *
@@ -181,8 +180,8 @@ class YamlFileLoader implements LoaderInterface
 
         return $this->loadNamespaced($locale, $group, $namespace);
     }
-	
-	
+
+
 	/**
      * Load a namespaced translation group.
      *
@@ -201,18 +200,18 @@ class YamlFileLoader implements LoaderInterface
 
         return [];
     }
-    
-    
+
+
      /**
      * Add a new namespace to the loader.
      *
      * @param  string  $namespace
      * @param  string  $hint
      * @return void
-     */    
+     */
     public function addNamespace($namespace, $hint)
     {
         $this->hints[$namespace] = $hint;
     }
-    
+
 }

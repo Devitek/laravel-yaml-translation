@@ -1,10 +1,11 @@
 {
     "name": "devitek/yaml-translation",
+    "license": "MIT",
     "description": "Add YAML file support to Laravel TranslationServiceProvider",
     "authors": [
         {
             "name": "Thomas SIEFFERT",
-            "email": "caporaldead@devitek.fr"
+            "email": "thomas.sieffert@devitek.fr"
         }
     ],
     "require": {

@@ -1,14 +1,16 @@
 # Add Yaml file support for Laravel 5 TranslationServiceProvider
 
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/02b5c920-d03b-40f9-961a-cb00f79d2e77/mini.png)](https://insight.sensiolabs.com/projects/aee36a27-a9bb-4d5f-9802-2a27b15a6aba) [![Latest Stable Version](https://poser.pugx.org/devitek/yaml-translation/v/stable)](https://packagist.org/packages/devitek/yaml-translation) [![Total Downloads](https://poser.pugx.org/devitek/yaml-translation/downloads)](https://packagist.org/packages/devitek/yaml-translation) [![Latest Unstable Version](https://poser.pugx.org/devitek/yaml-translation/v/unstable)](https://packagist.org/packages/devitek/yaml-translation) [![License](https://poser.pugx.org/devitek/yaml-translation/license)](https://packagist.org/packages/devitek/yaml-translation)
+
 This package uses Symfony/Yaml parser.
 
 ## Installing
 
-Add ```"devitek/yaml-translation": "1.*"``` to your **composer.json** by running :
+Add ```"devitek/yaml-translation": "2.*"``` to your **composer.json** by running :
 
     php composer.phar require devitek/yaml-translation
 
-And select version : ```1.*```
+And select version : ```2.*```
 
 ## Add support in Laravel
 
