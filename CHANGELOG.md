@@ -8,6 +8,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Update version in README.md
 - Remove unused import
 - Add licence to composer.json
+- Fix insight badge
 
 ### Added
 - Add .gitignore
