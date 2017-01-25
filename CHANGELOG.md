@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.1.1] - 2017-01-25
+### Fixed
+- Update composer.lock
+
 ## [2.1.0] - 2017-01-25
 ### Added
 - Add support to Laravel 5.4 (thanks to @michielkempen)
