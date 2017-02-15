@@ -1,9 +1,9 @@
 <?php namespace Devitek\Core\Translation;
 
-use Illuminate\Filesystem\Filesystem;
-use Symfony\Component\Yaml\Parser;
 use File;
-
+use Illuminate\Support\Arr;
+use Symfony\Component\Yaml\Parser;
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Translation\LoaderInterface;
 
 class YamlFileLoader implements LoaderInterface
@@ -128,7 +128,7 @@ class YamlFileLoader implements LoaderInterface
                 break;
         }
 
-        return $content;
+        return Arr::dot($content);
     }
 
 
