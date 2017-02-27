@@ -6,11 +6,11 @@ This package uses Symfony/Yaml parser.
 
 ## Installing
 
-Add ```"devitek/yaml-translation": "2.*"``` to your **composer.json** by running :
+Add ```"devitek/yaml-translation": "3.*"``` to your **composer.json** by running :
 
     php composer.phar require devitek/yaml-translation
 
-And select version : ```2.*```
+And select version : ```3.*```
 
 ## Add support in Laravel
 

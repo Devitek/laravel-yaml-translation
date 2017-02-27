@@ -1,11 +1,11 @@
-<?php namespace Devitek\Core\Translation;
+<?php
+
+namespace Devitek\Core\Translation;
 
 use Illuminate\Translation\TranslationServiceProvider as IlluminateTranslationServiceProvider;
 
-
 class TranslationServiceProvider extends IlluminateTranslationServiceProvider
 {
-
 	protected function registerLoader()
 	{
 		$this->app->singleton('translation.loader', function($app)
@@ -13,6 +13,4 @@ class TranslationServiceProvider extends IlluminateTranslationServiceProvider
 			return new YamlFileLoader($app['files'], $app['path.lang']);
 		});
 	}
-
-
 }
