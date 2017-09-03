@@ -2,13 +2,12 @@
 
 namespace Devitek\Core\Translation;
 
-use File;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Arr;
-use Illuminate\Translation\LoaderInterface;
+use Illuminate\Contracts\Translation\Loader;
 use Symfony\Component\Yaml\Parser;
 
-class YamlFileLoader implements LoaderInterface
+class YamlFileLoader implements Loader
 {
     /**
      * The filesystem instance.
@@ -208,5 +207,16 @@ class YamlFileLoader implements LoaderInterface
     public function namespaces()
     {
         return $this->hints;
+    }
+
+    /**
+     * Add a new JSON path to the loader.
+     *
+     * @param  string  $path
+     * @return void
+     */
+    public function addJsonPath($path)
+    {
+        //
     }
 }
