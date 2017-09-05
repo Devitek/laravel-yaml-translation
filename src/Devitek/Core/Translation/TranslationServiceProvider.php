@@ -21,10 +21,8 @@ class TranslationServiceProvider extends \Illuminate\Translation\TranslationServ
     {
         $source = realpath(__DIR__ . '/../../../config/yaml-translation.php');
 
-        if ($this->app instanceof LaravelApplication && $this->app->runningInConsole()) {
+        if ($this->app->runningInConsole()) {
             $this->publishes([$source => config_path('yaml-translation.php')]);
-        } elseif ($this->app instanceof LumenApplication) {
-            $this->app->configure('yaml-translation');
         }
 
         $this->mergeConfigFrom($source, 'yaml-translation');
