@@ -96,7 +96,7 @@ class YamlFileLoader implements Loader
     }
 
     /**
-     * require reqular php file or parse yaml before loading it
+     * Require regular php file or parse Yaml before loading it
      *
      * @param  string $extension
      * @param  string $file
