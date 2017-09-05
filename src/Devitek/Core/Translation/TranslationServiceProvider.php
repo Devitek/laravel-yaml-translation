@@ -2,28 +2,32 @@
 
 namespace Devitek\Core\Translation;
 
-use Illuminate\Translation\TranslationServiceProvider as IlluminateTranslationServiceProvider;
-
-class TranslationServiceProvider extends IlluminateTranslationServiceProvider
+class TranslationServiceProvider extends \Illuminate\Translation\TranslationServiceProvider
 {
     /**
      * @return void
      */
     public function boot()
     {
-        $this->publishes([
-            __DIR__ . '/../../../config/yaml-translation.php' => config_path('yaml-translation.php', 'yaml-translation'),
-        ]);
+        $this->setupConfig();
     }
 
     /**
+     * Setup the config.
+     *
      * @return void
      */
-    public function register()
+    protected function setupConfig()
     {
-        $this->mergeConfigFrom(
-            __DIR__ . '/../../../config/yaml-translation.php', 'yaml-translation'
-        );
+        $source = realpath(__DIR__ . '/../../../config/yaml-translation.php');
+
+        if ($this->app instanceof LaravelApplication && $this->app->runningInConsole()) {
+            $this->publishes([$source => config_path('yaml-translation.php')]);
+        } elseif ($this->app instanceof LumenApplication) {
+            $this->app->configure('yaml-translation');
+        }
+
+        $this->mergeConfigFrom($source, 'yaml-translation');
     }
 
     /**
