@@ -19,5 +19,12 @@
             "Devitek\\": "src/Devitek"
         }
     },
+    "extra": {
+        "laravel": {
+          "providers": [
+            "Devitek\\Core\\Translation\\TranslationServiceProvider"
+          ]
+        }
+    },
     "minimum-stability": "stable"
 }
