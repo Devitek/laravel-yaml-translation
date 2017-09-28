@@ -2,9 +2,9 @@
 
 namespace Devitek\Core\Translation;
 
+use Illuminate\Contracts\Translation\Loader;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Arr;
-use Illuminate\Contracts\Translation\Loader;
 use Symfony\Component\Yaml\Parser;
 
 class YamlFileLoader implements Loader
@@ -96,7 +96,7 @@ class YamlFileLoader implements Loader
     }
 
     /**
-     * require reqular php file or parse yaml before loading it
+     * Require regular php file or parse Yaml before loading it
      *
      * @param  string $extension
      * @param  string $file
@@ -117,7 +117,7 @@ class YamlFileLoader implements Loader
                 break;
         }
 
-        return Arr::dot($content);
+        return config('yaml-translation.dot_syntax', true) ? Arr::dot($content) : $content;
     }
 
     /**

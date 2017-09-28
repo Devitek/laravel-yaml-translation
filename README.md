@@ -8,9 +8,14 @@ This package uses Symfony/Yaml parser.
 
 Add ```"devitek/yaml-translation": "4.*"``` to your **composer.json** by running :
 
-    php composer.phar require devitek/yaml-translation
+    composer require devitek/yaml-translation
 
-And select version : ```4.*```
+And select version: ```4.*```
+
+Finally, publish all vendor assets to create a `yaml-translation.php`: 
+
+`php artisan vendor:publish`
+
 
 ## Add support in Laravel
 
